@@ -498,6 +498,10 @@ RCT_EXPORT_METHOD(makeRequest:(NSString *)providerName
                                           };
                 callback(@[errResp]);
             } else {
+                if (data == nil) {
+                    data = @[];
+                }
+                
                 NSDictionary *resp = @{
                                        @"status": @(statusCode),
                                        @"data": data
